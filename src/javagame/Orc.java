@@ -8,7 +8,7 @@ public class Orc extends Entity{
     private static Random rand = new Random();
     private float berserkFactor = rand.nextFloat()*2;
     
-    public Orc(String name, int health, float berserk_factor){
+    public Orc(String name, int health){
         super(name, health);
     }
     
