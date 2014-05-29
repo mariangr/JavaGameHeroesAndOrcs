@@ -8,8 +8,8 @@ public class Hero extends Entity {
         this.nickname=nickname;
     }
     
-    public void knowsAs (){
-        System.out.println(this.getName() + "the" + nickname);
+    public String knowsAs (){
+        return this.getName() + " the " + nickname;
     }
     
     @Override
