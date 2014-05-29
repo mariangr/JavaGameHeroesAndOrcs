@@ -5,12 +5,16 @@ public abstract class Entity {
     private int maxHealth;
     private boolean hasWeapon;
     private Weapon weapon;
+    private int x;
+    private int y;
     
-    public Entity(String name, int health) {
+    public Entity(String name, int health,int x,int y) {
     this.name=name;
     this.health=health; 
     this.maxHealth=health;
     this.hasWeapon=false;
+    this.x=x;
+    this.y=y;
     }
     
     public String getName(){
@@ -56,5 +60,15 @@ public abstract class Entity {
     
     public Weapon getWeapon(){
         return this.weapon;
+    }
+    
+    public void move(int x, int y){
+        if(JavaGame.map.isFree(x, y)){
+            JavaGame.map.removeEntity(this.x, this.y);
+            JavaGame.map.addEntity(x, y, this);
+            this.x=x;
+            this.y=y;
+            
+        }
     }
 }

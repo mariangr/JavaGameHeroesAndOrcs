@@ -3,8 +3,8 @@ public class Hero extends Entity {
 
     private String nickname;
     
-    public Hero(String name, int health, String nickname){
-        super(name, health);
+    public Hero(String name, int health, String nickname,int x,int y){
+        super(name, health,x,y);
         this.nickname=nickname;
     }
     
