@@ -1,8 +1,11 @@
 package javagame;
 
+import java.util.Random;
+
 public class JavaGame {
      
     public static Map map = Map.readFromFile("map.txt");
+    public static Random rand = new Random();
     
     public static void main(String[] args) {
         System.out.println(map);
@@ -19,8 +22,27 @@ public class JavaGame {
         map.placeEntity(hero);
         map.placeEntity(orc);
         
+        int chance = rand.nextInt(100);
+        int turn = 0;
+        if(chance < 50) {
+            turn = 1;
+        }
+        
+        while(!map.areClose(hero, orc)) {
+            if (turn==1){
+                System.out.printf("%s moved.\n",hero.knowsAs());
+                hero.automaticMove();
+                turn = 0;
+            } else if (turn==0){
+                System.out.printf("%s moved.\n",orc.getName());
+                orc.automaticMove();
+                turn = 1;
+            }
+            System.out.println(JavaGame.map);
+        }
+        
         Fight game = new Fight(hero,orc);
-        game.moveOnMap();
+        game.simulateFight();
         
     }
 }

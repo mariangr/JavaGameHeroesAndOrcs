@@ -13,27 +13,7 @@ public class Fight {
         this.orc=orc;
     }
     
-    public void moveOnMap(){
-        int chance = rand.nextInt(100);
-        int turn = 0;
-        if(chance < 50)
-            turn = 1;
-        while(!JavaGame.map.areClose(hero.getXCoord(), hero.getYCoord())){
-            if (turn==1){
-            JavaGame.map.automaticMove(hero);
-            turn = 0;
-            }
-            if (turn==0){
-            JavaGame.map.automaticMove(orc);
-            turn = 1;
-            }
-            System.out.println(JavaGame.map);
-        }
-        System.out.printf("%s and %s found eachother and are starting a fight.", hero.knowsAs(),orc.getName()); 
-        this.simulateFight();
-    }
-    
-    private void simulateFight(){
+    public void simulateFight(){
         int turn=0;
         int chance = rand.nextInt(100);
         if(chance < 50)
