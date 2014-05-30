@@ -5,6 +5,9 @@ public class JavaGame {
     public static Map map = new Map(10);
     
     public static void main(String[] args) {
+        Map map = Map.readFromFile("C:\\Users\\Hueco Mundo\\Desktop\\map.txt");
+        System.out.println(map);
+        /*
         Hero hero = new Hero("Byron",100,"Black",0,0);
         Orc orc = new Orc("Smeagle",100,5,5);
         
@@ -26,5 +29,6 @@ public class JavaGame {
         System.out.println(map);
         Fight game = new Fight(hero,orc);
         game.simulateFight();
+                */
     }
 }
