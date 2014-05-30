@@ -68,7 +68,20 @@ public abstract class Entity {
             JavaGame.map.addEntity(x, y, this);
             this.x=x;
             this.y=y;
-            
         }
     }
+    
+    public void setCoordinates(int x,int y){
+        this.x=x;
+        this.y=y;
+    }
+    
+    public int getXCoord(){
+        return this.x;
+    }
+    
+    public int getYCoord(){
+        return this.y;
+    }
+    
 }
